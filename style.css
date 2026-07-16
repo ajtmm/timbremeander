@@ -1,0 +1,600 @@
+/* =========================================================
+   Timbre Meander — Stylesheet
+   Palette: Dracula (https://draculatheme.com)
+   ========================================================= */
+
+:root {
+  /* Fluid typography (clamp) — min, fluid, max */
+  --fs-title:   clamp(3.5rem, 12vw + 1rem, 9rem);
+  --fs-tagline: clamp(0.85rem, 0.4vw + 0.75rem, 1rem);
+  --fs-poem-title: clamp(2.5rem, 4vw + 1rem, 4rem);
+  --fs-poem-author: clamp(0.95rem, 0.4vw + 0.85rem, 1.15rem);
+  --fs-poem-body:  clamp(1.rem, 0.6vw + 0.85rem, 1.25rem);
+  --fs-btn:        clamp(0.75rem, 0.3vw + 0.65rem, 1rem);
+  --fs-footer:     clamp(0.75rem, 0.2vw + 0.7rem, 0.85rem);
+  --blockquote: clamp(0.65rem, 0.2vw + 0.55rem, 0.9rem);
+
+  /* Spacing */
+  --pad-page: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* =========================================================
+   THEME: Cyberpunk (default) — Dracula palette, neon glow
+   ========================================================= */
+:root,
+[data-theme="cyberpunk"] {
+  --bg:        #282a36;
+  --bg-soft:   #21222c;
+  --line:      #44475a;
+  --fg:        #f8f8f2;
+  --muted:     #6272a4;
+  --cyan:      #8be9fd;
+  --green:     #50fa7b;
+  --orange:    #ffb86c;
+  --pink:      #ff79c6;
+  --purple:    #bd93f9;
+  --red:       #ff5555;
+  --yellow:    #f1fa8c;
+
+  --font-display: 'Jacquard 24', 'Cormorant Garamond', serif;
+  --font-body:    'Instrument Serif', serif;
+  --font-ui:      'Montserrat', sans-serif;
+
+  --title-gradient: linear-gradient(180deg, var(--purple) 0%, var(--pink) 70%, var(--orange) 100%);
+  --title-glow: 0 0 30px rgba(189, 147, 249, 0.35), 0 0 1px rgba(189, 147, 249, 0.5);
+  --title-drop-shadow: drop-shadow(0 4px 20px rgba(189, 147, 249, 0.25));
+  --title-transform: lowercase;
+  --title-tracking: 0;
+
+  --tagline-transform: lowercase;
+
+  --poem-title-glow: 0 0 18px rgba(139, 233, 253, 0.25);
+  --poem-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(98, 114, 164, 0.2) inset;
+  --poem-bg-gradient: linear-gradient(180deg, rgba(33, 34, 44, 0.85), rgba(40, 42, 54, 0.6));
+  --corner-display: block;
+  --grain-opacity: 0.12;
+  --divider-content: "------------";
+
+  --card-radius: 2px;
+  --btn-radius: 2px;
+  --btn-transform: uppercase;
+}
+
+/* =========================================================
+   THEME: Minimal — inspired by Obsidian Baseline
+   Clean, quiet, light, no glow, generous whitespace
+   ========================================================= */
+[data-theme="minimal"] {
+  --bg:        #faf9f7;
+  --bg-soft:   #f1efeb;
+  --line:      #e3e0da;
+  --fg:        #262521;
+  --muted:     #8c8880;
+  --cyan:      #232323;
+  --green:     #4c8c5c;
+  --orange:    #b5763b;
+  --pink:      #232323;
+  --purple:    #5b5bd6;
+  --red:       #232323;
+  --yellow:    #a68b2c;
+
+  --font-display: 'Instrument Serif', serif;
+  --font-body:    'Open Sans', sans-serif;
+  --font-ui:      'Open Sans', sans-serif;
+
+  --title-gradient: linear-gradient(180deg, var(--fg), var(--fg));
+  --title-glow: none;
+  --title-drop-shadow: none;
+  --title-transform: none;
+  --title-tracking: -0.02em;
+
+  --tagline-transform: none;
+
+  --poem-title-glow: none;
+  --poem-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+  --poem-bg-gradient: linear-gradient(180deg, #ffffff, #fbfaf8);
+  --corner-display: none;
+  --grain-opacity: 0;
+  --divider-content: "—";
+
+  --card-radius: 10px;
+  --btn-radius: 6px;
+  --btn-transform: none;
+}
+
+/* =========================================================
+   THEME: Dracula — the canonical Dracula palette, editorial
+   ========================================================= */
+[data-theme="dracula"] {
+  --bg:        #282a36;
+  --bg-soft:   #21222c;
+  --line:      #44475a;
+  --fg:        #f8f8f2;
+  --muted:     #6272a4;
+  --cyan:      #8be9fd;
+  --green:     #50fa7b;
+  --orange:    #ffb86c;
+  --pink:      #ff79c6;
+  --purple:    #bd93f9;
+  --red:       #ff5555;
+  --yellow:    #f1fa8c;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Lora', serif;
+  --font-ui:      'Inter', sans-serif;
+
+  --title-gradient: linear-gradient(180deg, var(--pink) 0%, var(--purple) 100%);
+  --title-glow: none;
+  --title-drop-shadow: none;
+  --title-transform: none;
+  --title-tracking: 0.01em;
+
+  --tagline-transform: none;
+
+  --poem-title-glow: none;
+  --poem-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.5);
+  --poem-bg-gradient: linear-gradient(180deg, rgba(33, 34, 44, 0.9), rgba(40, 42, 54, 0.75));
+  --corner-display: none;
+  --grain-opacity: 0.04;
+  --divider-content: "\2022  \2022  \2022";
+
+  --card-radius: 4px;
+  --btn-radius: 3px;
+  --btn-transform: none;
+}
+
+/* =========================================================
+   THEME: Terminal — inspired by spy-terminal-theme
+   Phosphor green CRT, monospace, hard edges
+   ========================================================= */
+[data-theme="terminal"] {
+  --bg:        #060a06;
+  --bg-soft:   #0a100a;
+  --line:      #1f3d1f;
+  --fg:        #39ff6a;
+  --muted:     #2a9c4a;
+  --cyan:      #6dffc7;
+  --green:     #39ff6a;
+  --orange:    #ccff33;
+  --pink:      #39ff6a;
+  --purple:    #6dffc7;
+  --red:       #ff4d4d;
+  --yellow:    #ccff33;
+
+  --font-display: 'VT323', monospace;
+  --font-body:    'Space Mono', monospace;
+  --font-ui:      'Space Mono', monospace;
+
+  --title-gradient: linear-gradient(180deg, var(--fg), var(--fg));
+  --title-glow: 0 0 8px rgba(57, 255, 106, 0.65), 0 0 2px rgba(57, 255, 106, 0.9);
+  --title-drop-shadow: drop-shadow(0 0 14px rgba(57, 255, 106, 0.35));
+  --title-transform: uppercase;
+  --title-tracking: 0.06em;
+
+  --tagline-transform: uppercase;
+
+  --poem-title-glow: 0 0 6px rgba(57, 255, 106, 0.5);
+  --poem-shadow: 0 0 0 1px rgba(57, 255, 106, 0.25) inset, 0 0 30px rgba(57, 255, 106, 0.08);
+  --poem-bg-gradient: linear-gradient(180deg, rgba(6, 10, 6, 0.95), rgba(10, 16, 10, 0.85));
+  --corner-display: block;
+  --grain-opacity: 0.06;
+  --divider-content: "//////////////";
+
+  --card-radius: 0px;
+  --btn-radius: 0px;
+  --btn-transform: uppercase;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background:
+    radial-gradient(ellipse at top, rgba(189, 147, 249, 0.08), transparent 55%),
+    radial-gradient(ellipse at bottom, rgba(255, 121, 198, 0.05), transparent 55%),
+    var(--bg);
+  padding: var(--pad-page);
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Subtle paper-grain overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(rgba(248, 248, 242, 0.55) 1px, transparent 1px),
+    radial-gradient(rgba(98, 114, 164, 0.4) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+  transition: opacity 0.4s ease;
+}
+
+/* ======================= HEADER ======================= */
+
+.site-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-block: clamp(1rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+  width: 100%;
+  max-width: 1100px;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: var(--title-tracking);
+  text-transform: var(--title-transform);
+  margin: 0;
+  color: var(--purple);
+  text-shadow: var(--title-glow);
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: var(--title-drop-shadow);
+  transition: color 0.4s ease;
+}
+
+.site-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-tagline);
+  letter-spacing: 2px;
+  text-transform: var(--tagline-transform);
+  color: var(--muted);
+  margin: clamp(0.5rem, 1.5vw, 1rem) 0 0;
+}
+
+/* ==================== THEME PICKER ===================== */
+
+.theme-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+  font-family: var(--font-ui);
+}
+
+.theme-picker-label {
+  font-size: var(--fs-footer);
+  letter-spacing: 1.5px;
+  text-transform: var(--tagline-transform, lowercase);
+  color: var(--muted);
+}
+
+.theme-select {
+  font-family: var(--font-ui);
+  font-size: var(--fs-footer);
+  letter-spacing: 1px;
+  color: var(--fg);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--btn-radius);
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-select:hover,
+.theme-select:focus-visible {
+  border-color: var(--purple);
+  color: var(--purple);
+  outline: none;
+}
+
+.theme-select option {
+  background: var(--bg-soft);
+  color: var(--fg);
+}
+
+/* ======================= STAGE ======================== */
+
+.stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  flex: 1;
+}
+
+.poem {
+  position: relative;
+  background: var(--poem-bg-gradient);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  padding: clamp(1.75rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem);
+  min-height: 320px;
+  box-shadow: var(--poem-shadow);
+  transition: opacity 0.5s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
+}
+
+/* Decorative corner marks */
+.poem::before,
+.poem::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--purple);
+  opacity: 0.6;
+  display: var(--corner-display);
+}
+.poem::before { top: 10px; left: 10px;  border-right: none; border-bottom: none; }
+.poem::after  { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.poem.fading { opacity: 0; }
+
+.poem-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--muted);
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Poem typography (rendered from markdown) */
+.poem h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-poem-title);
+  text-transform: var(--title-transform);
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--cyan);
+  margin: 0 0 0.25em;
+  text-shadow: var(--poem-title-glow);
+}
+
+.poem .author,
+.poem h1 + p em,
+.poem h1 + p {
+  display: block;
+  font-style: italic;
+  font-size: var(--fs-poem-author);
+  letter-spacing: 1.5px;
+  color: var(--pink);
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.poem .body,
+.poem p {
+  font-size: var(--fs-poem-body);
+  letter-spacing: 1px;
+  color: var(--fg);
+  line-height: 1.75;
+  margin: 0 0 1em;
+  white-space: normal;
+}
+
+.poem .body {
+  white-space: pre-wrap;     /* preserve hard line breaks for poetry */
+}
+
+.poem em { color: var(--yellow); font-style: italic; }
+.poem strong { color: var(--orange); font-weight: 400; }
+
+/* Links inside the poem body */
+.poem a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(80, 250, 123, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.poem a:hover,
+.poem a:focus-visible {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+  outline: none;
+}
+ 
+/* Links inside the author line stay in the pink/purple author family
+   so they don't compete with body links. */
+.poem .author a {
+  color: var(--pink);
+  border-bottom-color: rgba(255, 121, 198, 0.35);
+}
+.poem .author a:hover,
+.poem .author a:focus-visible {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+}
+
+blockquote {
+  background: var(--bg-soft);
+  border-left: 10px solid var(--muted);
+  padding: 0.5em 20px;
+}
+blockquote:before {
+  color: var(--muted);
+  content: "©";
+  font-size: 2em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.1em;
+}
+blockquote p {
+  font-size: var(--blockquote) !important;
+  color: var(--pink) !important;
+}
+
+/* Decorative divider between title block and body */
+.poem hr,
+.poem .divider {
+  border: none;
+  text-align: left;
+  margin: clamp(1rem, 3vw, 1.75rem) 0;
+  color: var(--muted);
+  overflow: visible;
+}
+.poem hr::before,
+.poem .divider::before {
+  content: var(--divider-content);  /* decorative divider, varies by theme */
+  font-size: 1.25rem;
+  letter-spacing: 0.5em;
+}
+
+/* ======================= CONTROLS ====================== */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.btn {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--fs-btn);
+  letter-spacing: 2px;
+  text-transform: var(--btn-transform);
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--btn-radius);
+  padding: 0.75em 1.5em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--purple);
+  color: var(--purple);
+  background: rgba(189, 147, 249, 0.08);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: rgba(255, 121, 198, 0.12);
+  border-color: var(--pink);
+  color: var(--pink);
+  box-shadow: 0 0 24px -6px rgba(255, 121, 198, 0.4);
+}
+
+.btn-glyph {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.btn-label { line-height: 1; }
+
+/* ======================= TOAST ======================== */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(1.5rem, 5vw, 3rem);
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg-soft);
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 0.65em 1.25em;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  font-style: italic;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ======================= FOOTER ======================== */
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-block: 1rem;
+  color: var(--muted);
+  font-size: var(--fs-footer);
+  font-style: italic;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+}
+
+/* ======================= MOTION ======================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--purple);
+  color: var(--bg);
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .controls { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+}
