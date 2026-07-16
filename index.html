@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyberpunk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Timbre Meander — a wandering randomizer of poems." />
+  <title>Timbre Meander</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz@0,8..60;1,8..60&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=VT323&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Apply saved theme immediately to avoid a flash of the default theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("timbre-meander-theme");
+        if (saved) document.documentElement.setAttribute("data-theme", saved);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+
+  <!-- Minimal markdown parser (marked) loaded from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <h1 class="site-title">Timbre Meander</h1>
+    <br>
+    <p class="site-tagline">read a new poem every day</p>
+<br>
+    <div class="theme-picker">
+      <label for="theme-select" class="theme-picker-label">Choose your theme</label>
+      <select id="theme-select" class="theme-select" aria-label="Choose your theme">
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="minimal">Minimal</option>
+        <option value="dracula">Dracula</option>
+        <option value="terminal">Terminal</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="stage">
+    <article id="poem" class="poem" aria-live="polite">
+      <div class="poem-loader">
+        <span>&#10042;</span>
+      </div>
+    </article>
+
+    <div class="controls" role="toolbar" aria-label="Poem actions">
+      <button id="btn-new" class="btn btn-primary" type="button" aria-label="Show a new random poem">
+   
+        <span class="btn-label">New Poem</span>
+      </button>
+      <button id="btn-copy" class="btn" type="button" aria-label="Copy this poem to your clipboard">
+       
+        <span class="btn-label">Copy</span>
+      </button>
+      <button id="btn-share" class="btn" type="button" aria-label="Share this poem">
+       
+        <span class="btn-label">Share</span>
+      </button>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer">
+    <span>&#169;</span>
+    <span>2026 Timbre Meander</span>
+  </footer>
+</body>
+</html>
